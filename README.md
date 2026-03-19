@@ -1,4 +1,3 @@
----
 
 # GigShield AI
 
