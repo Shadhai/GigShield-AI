@@ -1,31 +1,31 @@
-
 # GigShield AI
 
-**AI-powered parametric income protection for gig workers**
+**AI-powered parametric income protection for food delivery partners**
 
 ---
 
 # Overview
 
-GigShield AI is a parametric micro-insurance platform designed to protect gig economy workers (delivery riders, drivers, etc.) from temporary income loss caused by uncontrollable external disruptions such as heavy rainfall, extreme heat, severe air pollution, or platform outages.
+GigShield AI is a parametric micro-insurance platform designed specifically for **food delivery partners working on Swiggy and Zomato in Tier-1 cities**.
 
-Unlike traditional insurance, GigShield AI uses **automated parametric triggers, AI-driven risk scoring, and multi-signal verification** to detect disruption events and trigger claims with high accuracy.
+It protects workers from **short-term income loss caused by external disruptions** such as heavy rainfall, extreme heat, pollution, and platform outages.
+
+The system uses **AI-driven risk scoring, automated parametric triggers, and a multi-signal claim trust engine** to enable fast, fair, and fraud-resistant payouts.
 
 ---
 
 # Problem Statement
 
-Gig workers depend on daily platform activity for income. However, their earnings can drop suddenly due to:
+Food delivery partners rely on outdoor work for daily income. However, disruptions such as:
 
-* Heavy rainfall or floods
-* Heat waves
-* Severe air pollution
-* Platform outages
-* Local restrictions
+* heavy rainfall
+* extreme heat
+* severe pollution
+* platform outages
 
-Current insurance products rarely cover **short-term income loss**, leaving gig workers financially vulnerable.
+can reduce their earnings by **20–30% per week**.
 
-Additionally, simple parametric systems are vulnerable to **fraud and GPS spoofing**, which can lead to large-scale financial loss.
+There is currently **no protection for short-term income loss**, and existing parametric systems are vulnerable to **GPS spoofing and coordinated fraud**.
 
 ---
 
@@ -34,88 +34,70 @@ Additionally, simple parametric systems are vulnerable to **fraud and GPS spoofi
 GigShield AI provides:
 
 * Weekly micro-insurance policies
-* AI-powered risk assessment and premium calculation
-* Automated disruption detection through parametric triggers
-* **Multi-signal anti-spoofing claim verification**
-* AI-based fraud detection and fraud-ring identification
-* Automated claim processing and payout simulation
+* AI-based risk assessment for dynamic premiums
+* Automated parametric triggers for claim activation
+* Multi-signal anti-spoofing verification
+* Automated payout simulation
 
-The system ensures **fast, fair, and fraud-resistant compensation** for income disruptions.
+The platform ensures **zero-touch claims with strong fraud protection**.
 
 ---
 
-# Persona-Based Scenario
+# Persona
 
-## Persona
+**Target Users:**
+Food delivery riders working on Swiggy / Zomato in urban cities like Hyderabad and Mumbai.
 
-Ravi is a food delivery rider working with Swiggy in Hyderabad. His weekly income averages ₹7000.
+**Example:**
+Ravi, a delivery rider earning ₹7000/week, depends entirely on outdoor conditions to complete orders.
 
-## Scenario
+---
 
-Hyderabad experiences heavy rainfall (>80 mm). Ravi is unable to complete deliveries due to severe weather.
+# Workflow
 
-### Workflow
+1. Rider registers and activates weekly policy
+2. System monitors real-time environmental data
+3. Disruption trigger is activated (e.g., heavy rain)
+4. Claim Trust Engine verifies authenticity
+5. Fraud detection checks anomalies
+6. Income loss is estimated
+7. Claim is approved
+8. Payout is processed automatically
 
-1. Ravi registers on GigShield AI
-2. Ravi purchases a weekly policy
-3. System monitors environmental data
-4. Rainfall crosses threshold
-5. Trigger Engine activates
-6. Claim Trust Engine verifies authenticity
-7. Fraud detection checks anomalies
-8. Claim is approved
-9. Payout is calculated
-10. Ravi receives compensation
+---
+
+# Onboarding Flow
+
+1. Mobile number login (OTP)
+2. Select platform (Swiggy / Zomato)
+3. Enter weekly income
+4. Select working city/zone
+5. AI calculates risk score
+6. Weekly premium displayed
+7. One-tap policy activation
 
 ---
 
 # Weekly Premium Model
 
-Premium is calculated using a dynamic AI-driven model:
-
-### Formula
-
-```
-Premium = Base Rate × City Risk × Income Factor × AI Risk Score
+```id="p8n1zv"
+Premium = Base × City Risk × Income Factor × Risk Score × Behavior Factor
 ```
 
-Example:
-
-* Weekly income: ₹7000
-* Risk score: 0.7
-* Premium: ₹35–₹60
-
-This ensures affordability and fairness.
+* Weekly pricing aligned with gig economy
+* Lower risk zones → lower premium
+* Consistent behavior → reduced cost
 
 ---
 
 # Parametric Triggers
 
-| Trigger Type    | Condition             |
-| --------------- | --------------------- |
-| Heavy Rain      | Rainfall > 80 mm      |
-| Heat Wave       | Temperature > 42°C    |
-| Pollution       | AQI > 400             |
-| Platform Outage | App downtime detected |
-
-Triggers are **automated**, enabling zero-touch claim initiation.
-
----
-
-# Platform Choice
-
-## Worker Platform
-
-* Mobile-first interface
-* Responsive web app
-* Optional mobile app
-
-## Admin Platform
-
-* Web dashboard
-* Risk analytics
-* Fraud monitoring
-* Claim tracking
+| Trigger Type    | Condition          | Impact                |
+| --------------- | ------------------ | --------------------- |
+| Heavy Rain      | Rainfall > 80 mm   | Delivery halted       |
+| Heat Wave       | Temperature > 42°C | Reduced working hours |
+| Pollution       | AQI > 400          | Outdoor risk          |
+| Platform Outage | App downtime       | No orders             |
 
 ---
 
@@ -125,17 +107,24 @@ Triggers are **automated**, enabling zero-touch claim initiation.
 
 Model: XGBoost
 
-Purpose:
-Predict disruption probability and generate premium risk score
+* predicts disruption probability
+* used in premium calculation
 
 ---
 
 ## Income Loss Estimation
 
-Model: XGBoost (initial), LSTM (future)
+Based on:
 
-Purpose:
-Estimate expected income loss during disruption
+* historical weekly income
+* average daily earnings
+* zone-based disruption severity
+
+```id="k1x2zq"
+Expected = ₹1000  
+Actual = ₹400  
+Loss = ₹600  
+```
 
 ---
 
@@ -143,24 +132,24 @@ Estimate expected income loss during disruption
 
 Model: Isolation Forest
 
-Purpose:
-Detect anomalies in claims and worker behavior
+Detects:
+
+* abnormal claims
+* unrealistic patterns
+* repeated suspicious activity
 
 ---
 
 # Adversarial Defense & Anti-Spoofing Strategy
 
-## Problem
+## Core Idea
 
-GPS-based verification can be spoofed. Coordinated fraud groups can fake location to trigger payouts.
-
-GigShield AI uses a **multi-signal Claim Trust Engine** instead of relying only on GPS.
+GPS alone is unreliable.
+GigShield AI uses a **multi-signal Claim Trust Engine** to validate claims.
 
 ---
 
-## 1. Differentiation: Real vs Fake Worker
-
-The system evaluates:
+## Differentiation: Real vs Fake Worker
 
 ### Presence Authenticity
 
@@ -172,122 +161,79 @@ The system evaluates:
 
 * recent deliveries
 * working hours consistency
-* app activity
+* app session activity
 
 ### Device Integrity
 
 * mock location detection
 * device fingerprint
-* abnormal jumps
+* abnormal location jumps
 
 ### Environmental Consistency
 
-* real weather vs claimed zone
-* delivery slowdown
+* weather vs claimed location
+* zone-level disruption match
 
 ---
 
 ## Decision Output
 
-* Auto-Approved
-* Soft-Flagged
-* Hard-Flagged
+* **Auto-Approve** → high confidence
+* **Soft-Flag** → partial mismatch
+* **Hard-Flag** → strong fraud indicators
 
 ---
 
-## 2. Data Used
+## Fraud Ring Detection
 
-### Worker Data
+Detects coordinated fraud using:
 
-* order history
-* earnings pattern
-* claim frequency
-
-### Location Data
-
-* GPS trajectory
-* speed patterns
-
-### Device Data
-
-* device fingerprint
-* IP/network
-
-### Context Data
-
-* weather severity
-* zone disruption
-
-### Fraud Ring Detection
-
+* shared device/network
 * synchronized claims
-* shared devices
-* clustered behavior
+* abnormal claim clusters
 
 ---
 
-## 3. UX Balance
+# External Integrations
 
-### Soft Flagging
-
-Claims are not instantly rejected
-
-### Graceful Verification
-
-Minimal user friction
-
-### Tiered Payout
-
-* instant
-* delayed
-* review
-
-### Fairness
-
-* no penalty for first anomaly
-* reputation-based system
+* Weather API: OpenWeatherMap
+* Platform Data: Mock APIs simulating Swiggy / Zomato
+* Payment: Razorpay sandbox
 
 ---
 
-## 4. AI Defense Architecture
+# Dashboard Design
 
-* Claim Trust Model
-* Isolation Forest (anomaly detection)
-* Graph-based fraud detection
+## Worker Dashboard
+
+* Active policy
+* Risk level
+* Earnings protected
+* Claim status
 
 ---
 
-## Core Principle
+## Admin Dashboard
 
-GigShield AI verifies:
-
-**“Is this a real worker affected by disruption, or a spoofed claim?”**
+* Active policies
+* Claims triggered
+* Fraud alerts
+* Zone risk insights
 
 ---
 
 # Technology Stack
 
-Frontend:
-
-* React
-
-Backend:
-
-* FastAPI
-
-Database:
-
-* PostgreSQL
-
-ML:
-
-* Python, XGBoost, PyTorch
+Frontend: React
+Backend: FastAPI
+Database: PostgreSQL
+ML: Python, XGBoost, scikit-learn
 
 ---
 
 # System Architecture
 
-```
+```id="n6v3wz"
 Worker App
     ↓
 Frontend (React)
@@ -295,228 +241,38 @@ Frontend (React)
 Backend (FastAPI)
     ├ Policy Service
     ├ Trigger Engine
-    ├ Claim Trust Engine (Anti-Spoofing)
+    ├ Claim Trust Engine
     ├ Fraud Detection
-    ├ Risk Model Engine
+    ├ Risk Model
     └ Payout Engine
     ↓
-Database (PostgreSQL)
-    ↓
-ML Models
+Database + ML Models
 ```
 
 ---
-
-# AI Architecture
-
-GigShield AI uses a **multi-layer AI pipeline** to enable accurate risk prediction, fraud prevention, and intelligent payout decisions.
-
----
-
-## AI Pipeline Overview
-
-```
-Data Sources
-    ↓
-Feature Engineering Layer
-    ↓
-Risk Prediction Model
-    ↓
-Parametric Trigger Engine
-    ↓
-Claim Trust Engine (Anti-Spoofing AI)
-    ↓
-Fraud Detection Layer
-    ↓
-Income Loss Estimation Model
-    ↓
-Decision & Payout Engine
-```
-
----
-
-## 1. Data Ingestion Layer
-
-The system collects real-time and historical data from multiple sources:
-
-* Weather data (rainfall, temperature, AQI)
-* Worker activity data (orders, sessions, earnings)
-* Location and movement data (trajectory, speed)
-* Device and network signals
-* Platform usage patterns
-
----
-
-## 2. Feature Engineering Layer
-
-Raw data is transformed into meaningful features:
-
-* disruption severity score
-* worker activity consistency
-* mobility patterns
-* zone-level risk score
-* claim frequency patterns
-
-These features feed into all AI models.
-
----
-
-## 3. Risk Prediction Model
-
-Model: **XGBoost**
-
-Purpose:
-
-* Predict disruption probability
-* Generate risk score for premium calculation
-
-Output:
-
-```
-risk_score = 0.72
-```
-
----
-
-## 4. Parametric Trigger Engine
-
-Uses real-time environmental thresholds:
-
-* Rainfall > 80 mm
-* Temperature > 42°C
-* AQI > 400
-
-Automatically activates claims without manual input.
-
----
-
-## 5. Claim Trust Engine (Anti-Spoofing AI)
-
-Core innovation layer.
-
-Evaluates whether the claim is genuine using:
-
-* route continuity
-* worker activity patterns
-* device integrity
-* environmental consistency
-
-Output:
-
-```
-claim_trust_score = 0.81
-```
-
----
-
-## 6. Fraud Detection Layer
-
-Model: **Isolation Forest**
-
-Detects anomalies such as:
-
-* GPS spoofing
-* abnormal claim timing
-* repeated suspicious behavior
-* unrealistic movement patterns
-
----
-
-## 7. Fraud Ring Detection (Advanced Layer)
-
-Graph-based fraud detection:
-
-Nodes:
-
-* workers
-* devices
-* IP/network
-
-Edges:
-
-* shared device
-* synchronized claims
-* behavior similarity
-
-Detects coordinated fraud groups.
-
----
-
-## 8. Income Loss Estimation Model
-
-Model: **XGBoost (current)**
-Future: **LSTM**
-
-Purpose:
-
-* Estimate actual income loss during disruption
-
-Example:
-
-```
-expected_income = ₹1000
-actual_income = ₹400
-loss = ₹600
-```
-
----
-
-## 9. Decision & Payout Engine
-
-Combines all outputs:
-
-* risk score
-* claim trust score
-* fraud score
-* income loss
-
-Final decision:
-
-* approve
-* delay
-* flag
-
----
-
 
 # Development Plan
 
-## Phase 1
-
-* Setup backend and DB
-* Basic API
-
-## Phase 2
-
-* Policy + claim flow
-
-## Phase 3
-
-* AI models
-
-## Phase 4
-
-* Anti-spoofing system
-
-## Phase 5
-
-* Frontend + dashboard
+Phase 1: Foundation & architecture
+Phase 2: Policy + claims flow
+Phase 3: AI models
+Phase 4: Anti-spoofing layer
+Phase 5: Dashboard
 
 ---
 
 # Expected Impact
 
-GigShield AI delivers:
-
-* Financial protection for gig workers
-* Fast automated payouts
-* Fraud-resistant insurance system
-* Scalable micro-insurance model
+* Protects gig worker income
+* Enables instant payouts
+* Prevents fraud and spoofing
+* Provides scalable micro-insurance solution
 
 ---
 
 # Final Pitch Line
 
-**GigShield AI uses AI-driven parametric insurance with multi-signal fraud defense to protect gig workers’ income while preventing large-scale spoofing attacks.**
+**GigShield AI protects delivery workers’ income using AI-driven parametric insurance with built-in anti-spoofing fraud defense.**
 
--
+---
+
