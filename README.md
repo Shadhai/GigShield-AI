@@ -360,11 +360,9 @@ Worker App → Frontend → Backend
 # Development Plan
 
 * Phase 1: Core architecture
-* Phase 2: Policy + claims flow
-* Phase 3: ML models
-* Phase 4: Anti-spoofing system
-* Phase 5: Dashboard & testing
-
+* Phase 2: Policy + claims flow, ML models
+* Phase 3: Anti-spoofing system, Dashboard & testing
+# Designed a sample work flow for phase 1 in react 
 ---
 
 # Why GigShield AI Wins
