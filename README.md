@@ -249,6 +249,8 @@ Backend (FastAPI)
 Database + ML Models
 ```
 
+<img width="1280" height="684" alt="image" src="https://github.com/user-attachments/assets/8c72efef-aafe-4e27-986a-a5acc441f9c2" />
+
 ---
 
 # Development Plan
